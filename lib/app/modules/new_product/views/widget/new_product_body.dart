@@ -9,6 +9,7 @@ class NewProductBody extends GetView<MainProductController> {
       backgroundColor: Colors.grey[300],
       body: new
         TabBarView(
+
         //controller: controller.pageController,
         children: controller.seletedCategory.map((element) {
           return new Card(

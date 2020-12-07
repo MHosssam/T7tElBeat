@@ -33,6 +33,7 @@ class NewProductView extends GetView<MainProductController> {
             onTap: (index){
              // controller.pageController.jumpToPage(index);
             },
+            isScrollable: true,
             tabs: controller.seletedCategory.map((element) => Tab(text: element.name,)).toList(),
            // controller:controller.tabController ,
           ),
