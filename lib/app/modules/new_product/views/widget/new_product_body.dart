@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ta7t_elbeet/app/modules/main_product/controllers/main_product_controller.dart';
+import 'package:ta7t_elbeet/service/category_service.dart';
 
-class NewProductBody extends GetView<MainProductController> {
+class NewProductBody extends GetView<CategoryService> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

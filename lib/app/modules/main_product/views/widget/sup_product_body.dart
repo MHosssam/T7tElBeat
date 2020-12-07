@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ta7t_elbeet/app/modules/main_product/controllers/main_product_controller.dart';
+import 'package:ta7t_elbeet/service/category_service.dart';
 import 'package:ta7t_elbeet/utilities/ColorsUtilities.dart';
 
-class SupProductBody extends GetView<MainProductController> {
+class SupProductBody extends GetView<CategoryService> {
   final _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {

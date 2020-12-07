@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ta7t_elbeet/app/modules/main_product/controllers/main_product_controller.dart';
-import 'package:ta7t_elbeet/app/modules/new_product/controllers/new_product_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ta7t_elbeet/app/modules/new_product/views/widget/new_product_body.dart';
+import 'package:ta7t_elbeet/service/category_service.dart';
 import 'package:ta7t_elbeet/utilities/ColorsUtilities.dart';
 
-class NewProductView extends GetView<MainProductController> {
+class NewProductView extends GetView<CategoryService> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

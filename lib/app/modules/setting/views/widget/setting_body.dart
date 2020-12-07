@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ta7t_elbeet/app/data/TextData.dart';
-import 'package:ta7t_elbeet/app/modules/setting/controllers/setting_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ta7t_elbeet/app/modules/setting/views/widget/eshtrak_body.dart';
 import 'package:ta7t_elbeet/app/modules/setting/views/widget/radio_body.dart';
 import 'package:ta7t_elbeet/app/modules/setting/views/widget/shop_availability.dart';
+import 'package:ta7t_elbeet/service/setting_service.dart';
 
-class SettingBody extends GetView<SettingController> {
-  //final controller = Get.put(SettingController());
+class SettingBody extends GetView<SettingService> {
 
   @override
   Widget build(BuildContext context) {

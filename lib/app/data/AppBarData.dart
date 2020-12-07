@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ta7t_elbeet/app/modules/setting/controllers/setting_controller.dart';
+import 'package:ta7t_elbeet/service/setting_service.dart';
 import 'package:ta7t_elbeet/utilities/ColorsUtilities.dart';
 import 'package:get/get.dart';
 import 'TextData.dart';
@@ -18,7 +18,7 @@ class AppBarData extends AppBar {
           leading: Obx(
             () => Icon(
               Icons.radio_button_checked_outlined,
-              color: Get.find<SettingController>().changeColor(),
+              color: Get.find<SettingService>().changeColor(),
             ),
           ),
         );

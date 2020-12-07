@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ta7t_elbeet/app/modules/setting/controllers/setting_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ta7t_elbeet/service/setting_service.dart';
 
 import 'shop_availability.dart';
 
-class RadioBody extends GetView<SettingController> {
+class RadioBody extends GetView<SettingService> {
   RadioBody({
     this.shopAvailability,
     this.title,

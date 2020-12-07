@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:ta7t_elbeet/app/data/TextData.dart';
-import 'package:ta7t_elbeet/app/modules/main_product/controllers/main_product_controller.dart';
-import 'package:ta7t_elbeet/app/modules/setting/controllers/setting_controller.dart';
 import 'package:ta7t_elbeet/app/routes/app_pages.dart';
+import 'package:ta7t_elbeet/service/category_service.dart';
+import 'package:ta7t_elbeet/service/setting_service.dart';
 import 'package:ta7t_elbeet/utilities/ColorsUtilities.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -38,8 +38,8 @@ class Splash extends StatelessWidget {
         return child;
       },
       initFunction: () async {
-        Get.put(SettingController());
-        Get.put(MainProductController());
+        Get.put(SettingService());
+        Get.put(CategoryService());
         return Routes.HOME;
       },
     );

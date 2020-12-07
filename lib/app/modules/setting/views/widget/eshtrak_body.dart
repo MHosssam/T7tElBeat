@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:ta7t_elbeet/app/data/ButtonData.dart';
 import 'package:ta7t_elbeet/app/data/TextData.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ta7t_elbeet/app/modules/setting/controllers/setting_controller.dart';
 import 'package:intl/intl.dart';
+import 'package:ta7t_elbeet/service/setting_service.dart';
 
-class EshtrakBody extends GetView<SettingController> {
+class EshtrakBody extends GetView<SettingService> {
   final String title;
   final Rx<DateTime> time;
 
