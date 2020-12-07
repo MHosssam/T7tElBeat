@@ -12,6 +12,7 @@ import 'package:ta7t_elbeet/app/modules/setting/views/setting_view.dart';
 import 'package:ta7t_elbeet/app/modules/shop_management/views/shop_management_view.dart';
 import 'package:ta7t_elbeet/app/modules/statistics/views/statistics_view.dart';
 import 'package:ta7t_elbeet/app/modules/suggestions/views/suggestions_view.dart';
+import 'package:ta7t_elbeet/app/routes/app_pages.dart';
 import 'package:ta7t_elbeet/utilities/ColorsUtilities.dart';
 
 class DrawerData extends StatelessWidget {
@@ -37,7 +38,7 @@ class DrawerData extends StatelessWidget {
             Spacer(),
             ListTile(
               onTap: () {
-                Get.offAll(HomeScreenView());
+                Get.offAllNamed(Routes.HOME_SCREEN);
               },
               title: TextData(
                 'الصفحة الرئيسية',
@@ -51,7 +52,7 @@ class DrawerData extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.offAll(ShopManagementView());
+                Get.offAllNamed(Routes.SHOP_MANAGEMENT);
               },
               title: TextData(
                 'ادارة المحلات',
@@ -65,7 +66,7 @@ class DrawerData extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.offAll(PersonalAcountView());
+                Get.offAllNamed(Routes.PERSONAL_ACOUNT);
               },
               title: TextData(
                 'الحساب الشخصي',
@@ -79,7 +80,7 @@ class DrawerData extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.offAll(NotificationView());
+                Get.offAllNamed(Routes.NOTIFICATION);
               },
               title: TextData(
                 'الإشعارات',
@@ -93,7 +94,7 @@ class DrawerData extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.offAll(ProductView());
+                Get.offAllNamed(Routes.PRODUCT);
               },
               title: TextData(
                 'المنتجات',
@@ -107,7 +108,7 @@ class DrawerData extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.offAll(StatisticsView());
+                Get.offAllNamed(Routes.STATISTICS);
               },
               title: TextData(
                 'الإحصائيات',
@@ -121,7 +122,7 @@ class DrawerData extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.offAll(SuggestionsView());
+                Get.offAllNamed(Routes.SUGGESTIONS);
               },
               title: TextData(
                 'الشكاوى و الإقتراحات',
@@ -136,7 +137,7 @@ class DrawerData extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.offAll(SettingView());
+                Get.offAllNamed(Routes.SETTING);
               },
               title: TextData(
                 'الإعدادات',
@@ -150,7 +151,7 @@ class DrawerData extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.offAll(ProvisionsView());
+                Get.offAllNamed(Routes.PROVISIONS);
               },
               title: TextData(
                 'الشروط و الاحكام',
@@ -164,7 +165,7 @@ class DrawerData extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.offAll(LoginView());
+                Get.offAllNamed(Routes.HOME);
               },
               title: TextData(
                 'تسجيل الجروج',

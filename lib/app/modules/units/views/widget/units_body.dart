@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:ta7t_elbeet/app/modules/units/controllers/units_controller.dart';
 import 'package:ta7t_elbeet/utilities/ColorsUtilities.dart';
 
@@ -84,47 +83,52 @@ class UnitsBody extends GetView<UnitsController> {
           padding: EdgeInsets.all(10.0),
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.30,
-          child: Obx(
-            () => ListView.builder(
-              itemBuilder: (context, index) {
-                return Card(
-                  color: Colors.amber,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 8.0, vertical: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Obx(
-                          () => Checkbox(
-                            onChanged: (bool value) {
-                              controller.UnitsList[index]['value'] = value;
-                            },
-                            value: controller.UnitsList[index]['value'],
-                            activeColor: Color(0xFF6200EE),
+          child: Scrollbar(
+            isAlwaysShown: true,
+            controller: _scrollController,
+            child: Obx(
+              () => ListView.builder(
+                controller: _scrollController,
+                itemBuilder: (context, index) {
+                  return Card(
+                    color: Colors.amber,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0, vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Obx(
+                            () => Checkbox(
+                              onChanged: (bool value) {
+                                controller.UnitsList[index]['value'] = value;
+                              },
+                              value: controller.UnitsList[index]['value'],
+                              activeColor: Color(0xFF6200EE),
+                            ),
                           ),
-                        ),
-                        Text(
-                          ' ${controller.UnitsList[index]['name']}',
-                          style: TextStyle(
-                            color: ColorsUtilities.appWhite,
-                            fontSize: 60.sp,
-                            fontWeight: FontWeight.bold,
+                          Text(
+                            ' ${controller.UnitsList[index]['name']}',
+                            style: TextStyle(
+                              color: ColorsUtilities.appWhite,
+                              fontSize: 60.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
-              itemCount: controller.UnitsList.length,
+                  );
+                },
+                itemCount: controller.UnitsList.length,
+              ),
             ),
           ),
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
         Container(
           width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.2,
+          height: MediaQuery.of(context).size.height * 0.15,
           child: Scrollbar(
             isAlwaysShown: true,
             controller: _scrollController,

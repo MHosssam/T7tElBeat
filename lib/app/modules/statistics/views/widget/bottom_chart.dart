@@ -2,17 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:ta7t_elbeet/app/modules/statistics/controllers/statistics_controller.dart';
 
 import 'badge.dart';
 
-class BottomChart extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => BottomChartState();
-}
-
-class BottomChartState extends State {
-  int touchedIndex;
-
+class BottomChart extends GetView<StatisticsController> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,7 +18,9 @@ class BottomChartState extends State {
             ),
             child: Text(
               'العناصر الاكثر مبيعا',
-              style: TextStyle(fontSize: 60.sp, ),
+              style: TextStyle(
+                fontSize: 60.sp,
+              ),
             )),
         AspectRatio(
           aspectRatio: 1.7,
@@ -33,15 +30,15 @@ class BottomChartState extends State {
               aspectRatio: 1,
               child: PieChart(
                 PieChartData(
-                    pieTouchData: PieTouchData(touchCallback: (pieTouchResponse) {
-                      setState(() {
-                        if (pieTouchResponse.touchInput is FlLongPressEnd ||
-                            pieTouchResponse.touchInput is FlPanEnd) {
-                          touchedIndex = -1;
-                        } else {
-                          touchedIndex = pieTouchResponse.touchedSectionIndex;
-                        }
-                      });
+                    pieTouchData:
+                        PieTouchData(touchCallback: (pieTouchResponse) {
+                      if (pieTouchResponse.touchInput is FlLongPressEnd ||
+                          pieTouchResponse.touchInput is FlPanEnd) {
+                        controller.touchedIndex = -1;
+                      } else {
+                        controller.touchedIndex =
+                            pieTouchResponse.touchedSectionIndex;
+                      }
                     }),
                     borderData: FlBorderData(
                       show: false,
@@ -59,7 +56,7 @@ class BottomChartState extends State {
 
   List<PieChartSectionData> showingSections() {
     return List.generate(4, (i) {
-      final isTouched = i == touchedIndex;
+      final isTouched = i == controller.touchedIndex;
       final double radius = isTouched ? 110 : 100;
       final double widgetSize = isTouched ? 60 : 50;
 
@@ -122,5 +119,3 @@ class BottomChartState extends State {
     });
   }
 }
-
-

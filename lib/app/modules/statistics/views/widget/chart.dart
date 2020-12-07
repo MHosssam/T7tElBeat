@@ -1,46 +1,13 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ta7t_elbeet/app/modules/statistics/controllers/statistics_controller.dart';
 
-class Chart extends StatefulWidget {
-  @override
-  _ChartState createState() => _ChartState();
-}
-
-class _ChartState extends State<Chart> {
-
-  final Color leftBarColor = const Color(0xff53fdd7);
-
-  final double width = 35;
-
-  List<BarChartGroupData> rawBarGroups;
-
-  List<BarChartGroupData> showingBarGroups;
-
-  int touchedGroupIndex;
-
-  @override
-  void initState() {
-    super.initState();
-    final barGroup1 = makeGroupData(0, 5, 12);
-    final barGroup2 = makeGroupData(1, 15, 12);
-    final barGroup3 = makeGroupData(2, 10, 20);
-    final barGroup4 = makeGroupData(3, 5, 5);
-
-    final items = [
-      barGroup1,
-      barGroup2,
-      barGroup3,
-      barGroup4,
-    ];
-
-    rawBarGroups = items;
-
-    showingBarGroups = rawBarGroups;
-  }
-
+class Chart extends GetView<StatisticsController> {
 
   @override
   Widget build(BuildContext context) {
+   // Get.lazyPut(()=>StatisticsController());
     return AspectRatio(
       aspectRatio: 2,
       child: Card(
@@ -114,7 +81,7 @@ class _ChartState extends State<Chart> {
                       borderData: FlBorderData(
                         show: false,
                       ),
-                      barGroups: showingBarGroups,
+                      barGroups: controller.showingBarGroups,
                     ),
                   ),
                 ),
@@ -125,15 +92,5 @@ class _ChartState extends State<Chart> {
       ),
     );
   }
-  BarChartGroupData makeGroupData(int x, double y1, double y2) {
-    return BarChartGroupData(barsSpace: 2, x: x, barRods: [
-      BarChartRodData(
-        y: y1,
-        colors: [leftBarColor],
-        width: width,
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(1), topRight: Radius.circular(1)),
-      ),
-    ]);
-  }
+
 }

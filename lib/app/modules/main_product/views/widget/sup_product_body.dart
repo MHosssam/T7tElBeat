@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:ta7t_elbeet/app/modules/main_product/controllers/main_product_controller.dart';
 import 'package:ta7t_elbeet/utilities/ColorsUtilities.dart';
 
@@ -11,9 +10,7 @@ class SupProductBody extends GetView<MainProductController> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(children: [
-        SizedBox(
-          height: 40.w,
-        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -73,9 +70,7 @@ class SupProductBody extends GetView<MainProductController> {
             ),
           ],
         ),
-        SizedBox(
-          height: 50,
-        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
         Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -86,50 +81,55 @@ class SupProductBody extends GetView<MainProductController> {
           padding: EdgeInsets.all(10.0),
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.30,
-          child: Obx(
-            () => ListView.builder(
-              itemBuilder: (context, index) {
-                return Card(
-                  color: Colors.amber,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 8.0, vertical: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Obx(
-                          () => Checkbox(
-                            onChanged: (bool value) {
-                              //controller.ProductList[index]['value'] = value;
-                              controller.removeOrAddToSelected(
-                                  controller.productData[index].id);
-                            },
-                            value: controller.seletedCategory.any((element) =>
-                                element.id == controller.productData[index].id),
-                            activeColor: Color(0xFF6200EE),
+          child: Scrollbar(
+            isAlwaysShown: true,
+            controller: _scrollController,
+            child: Obx(
+              () => ListView.builder(
+                controller: _scrollController,
+                itemBuilder: (context, index) {
+                  return Card(
+                    color: Colors.amber,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0, vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Obx(
+                            () => Checkbox(
+                              onChanged: (bool value) {
+                                controller.removeOrAddToSelected(
+                                    controller.productData[index].id);
+                              },
+                              value: controller.seletedCategory.any((element) =>
+                                  element.id == controller.productData[index].id),
+                              activeColor: Color(0xFF6200EE),
+                            ),
                           ),
-                        ),
-                        Text(
-                          ' ${controller.productData[index].name}',
-                          style: TextStyle(
-                            color: ColorsUtilities.appWhite,
-                            fontSize: 60.sp,
-                            fontWeight: FontWeight.bold,
+                          Text(
+                            ' ${controller.productData[index].name}',
+                            style: TextStyle(
+                              color: ColorsUtilities.appWhite,
+                              fontSize: 60.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
-              itemCount: controller.productData.length,
+                  );
+                },
+                itemCount: controller.productData.length,
+              ),
             ),
           ),
         ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
         Obx(
           () => Container(
               width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.15,
               child: Scrollbar(
                 isAlwaysShown: true,
                 controller: _scrollController,
@@ -156,6 +156,7 @@ class SupProductBody extends GetView<MainProductController> {
                 ),
               )),
         ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
       ]),
     );
   }
