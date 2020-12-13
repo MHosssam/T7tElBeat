@@ -7,7 +7,6 @@ class Chart extends GetView<StatisticsController> {
 
   @override
   Widget build(BuildContext context) {
-   // Get.lazyPut(()=>StatisticsController());
     return AspectRatio(
       aspectRatio: 2,
       child: Card(
