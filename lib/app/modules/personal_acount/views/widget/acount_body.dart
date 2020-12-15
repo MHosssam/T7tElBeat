@@ -7,6 +7,7 @@ import '../../../../data/txt_field_body.dart';
 class AccountBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     var txtAdress = TextEditingController();
     var txtName = TextEditingController();
     var txtPhone = TextEditingController();
@@ -14,8 +15,8 @@ class AccountBody extends StatelessWidget {
       child: Column(
         children: [
           PhotoBody(),
-          TxtFieldBody('اسم المحل' ,txtName , TextAlign.right),
-          TxtFieldBody('العنوان', txtAdress , TextAlign.right),
+          TxtFieldBody('اسم المحل' , txtName ,  TextAlign.right),
+          TxtFieldBody('العنوان', txtAdress ,  TextAlign.right  ),
           TxtFieldBody('رقم الهاتف', txtPhone , TextAlign.right),
           SizedBox(
             height: 50,

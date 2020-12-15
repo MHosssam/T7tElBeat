@@ -56,7 +56,7 @@ class AddShopView extends GetView<AddShopController> {
               ),
               TxtFieldBody('اسم المنشاه', txtShopName, TextAlign.right),
               TxtFieldBody('العنوان', txtShopAdress, TextAlign.right),
-              TxtFieldBody('رقم الهاتف', txtShopPhone, TextAlign.left),
+              TxtFieldBody('رقم الهاتف', txtShopPhone, TextAlign.left ),
               TxtFieldBody('رقم الهاتف2', txtShopPhone2, TextAlign.left),
               Container(
                 margin: EdgeInsets.all(16.0),

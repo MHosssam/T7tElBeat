@@ -5,7 +5,7 @@ class TxtFieldBody extends StatelessWidget {
   String name ;
   TextEditingController txt ;
   TextAlign txtAlign ;
-  TxtFieldBody(this.name , this.txt ,this.txtAlign );
+  TxtFieldBody(this.name, this.txt, this.txtAlign);
 
   @override
   Widget build(BuildContext context) {
