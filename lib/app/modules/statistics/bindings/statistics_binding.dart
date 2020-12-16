@@ -4,8 +4,8 @@ import 'package:ta7t_elbeet/app/modules/statistics/controllers/statistics_contro
 class StatisticsBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<StatisticsController>(
-      () => StatisticsController(),
+    Get.put<StatisticsController>(
+     StatisticsController(),
     );
   }
 }

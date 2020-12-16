@@ -10,9 +10,9 @@ class StatisticsController extends GetxController {
 
   List<BarChartGroupData> showingBarGroups;
 
-  int touchedGroupIndex;
+ // int touchedGroupIndex;
 
-  int touchedIndex;
+  final touchedIndex = RxInt(null);
 
 
   @override
@@ -36,12 +36,12 @@ class StatisticsController extends GetxController {
     showingBarGroups = rawBarGroups;
 
 
-  }
+  }   
 
 
   List<PieChartSectionData> showingSections() {
     return List.generate(4, (i) {
-      final isTouched = i == touchedIndex;
+      final isTouched = i == touchedIndex.value;
       final double radius = isTouched ? 110 : 100;
       final double widgetSize = isTouched ? 60 : 50;
 
@@ -51,10 +51,10 @@ class StatisticsController extends GetxController {
             color: const Color(0xff0293ee),
             value: 30,
             title: '30% تفاح',
-            radius: radius,
+            radius: radius ,
             badgeWidget: Badge(
               'assets/images/apple.png',
-              size: widgetSize,
+              size: widgetSize ,
               borderColor: const Color(0xff0293ee),
             ),
             badgePositionPercentageOffset: .98,
@@ -77,7 +77,7 @@ class StatisticsController extends GetxController {
             color: const Color(0xff845bef),
             value: 28,
             title: '28% خوخ',
-            radius: radius,
+            radius: radius ,
             badgeWidget: Badge(
               'assets/images/peach.png',
               size: widgetSize,

@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ta7t_elbeet/app/modules/statistics/controllers/statistics_controller.dart';
 
-
 class BottomChart extends GetView<StatisticsController> {
   @override
   Widget build(BuildContext context) {
@@ -27,14 +26,18 @@ class BottomChart extends GetView<StatisticsController> {
             color: Colors.white,
             child: AspectRatio(
               aspectRatio: 1,
-              child: PieChart(
-                PieChartData(
-                    pieTouchData:  PieTouchData(touchCallback: (pieTouchResponse) {
+              child: Obx(
+                () => PieChart(
+                  PieChartData(
+                    sections: controller.showingSections(),
+                    pieTouchData:
+                        PieTouchData(touchCallback: (pieTouchResponse) {
                       if (pieTouchResponse.touchInput is FlLongPressEnd ||
                           pieTouchResponse.touchInput is FlPanEnd) {
-                       controller.touchedIndex = -1;
+                        controller.touchedIndex.value = -1;
                       } else {
-                        controller.touchedIndex = pieTouchResponse.touchedSectionIndex;
+                        controller.touchedIndex.value =
+                            pieTouchResponse.touchedSectionIndex;
                       }
                     }),
                     borderData: FlBorderData(
@@ -42,7 +45,8 @@ class BottomChart extends GetView<StatisticsController> {
                     ),
                     sectionsSpace: 0,
                     centerSpaceRadius: 0,
-                    sections: controller.showingSections()),
+                  ),
+                ),
               ),
             ),
           ),
@@ -50,6 +54,4 @@ class BottomChart extends GetView<StatisticsController> {
       ],
     );
   }
-
-
 }
