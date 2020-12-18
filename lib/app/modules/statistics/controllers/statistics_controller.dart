@@ -44,6 +44,8 @@ class StatisticsController extends GetxController {
       final isTouched = i == touchedIndex.value;
       final double radius = isTouched ? 110 : 100;
       final double widgetSize = isTouched ? 60 : 50;
+      final double fontSize = isTouched ? 20 : 16;
+
 
       switch (i) {
         case 0:
@@ -52,6 +54,8 @@ class StatisticsController extends GetxController {
             value: 30,
             title: '30% تفاح',
             radius: radius ,
+            titleStyle: TextStyle(
+                fontSize: fontSize, fontWeight: FontWeight.bold, color: const Color(0xffffffff)),
             badgeWidget: Badge(
               'assets/images/apple.png',
               size: widgetSize ,
@@ -65,6 +69,8 @@ class StatisticsController extends GetxController {
             value: 20,
             title: '20% موز',
             radius: radius,
+            titleStyle: TextStyle(
+                fontSize: fontSize, fontWeight: FontWeight.bold, color: const Color(0xffffffff)),
             badgeWidget: Badge(
               'assets/images/bananas.png',
               size: widgetSize,
@@ -78,6 +84,8 @@ class StatisticsController extends GetxController {
             value: 28,
             title: '28% خوخ',
             radius: radius ,
+            titleStyle: TextStyle(
+                fontSize: fontSize, fontWeight: FontWeight.bold, color: const Color(0xffffffff)),
             badgeWidget: Badge(
               'assets/images/peach.png',
               size: widgetSize,
@@ -91,6 +99,8 @@ class StatisticsController extends GetxController {
             value: 22,
             title: ' 22% خيار',
             radius: radius,
+            titleStyle: TextStyle(
+                fontSize: fontSize, fontWeight: FontWeight.bold, color: const Color(0xffffffff)),
             badgeWidget: Badge(
               'assets/images/cucumber.png',
               size: widgetSize,

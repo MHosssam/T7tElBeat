@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 
 
 class Badge extends StatelessWidget {
-  final String svgAsset;
+  final String pngAsset;
   final double size;
   final Color borderColor;
 
   const Badge(
-      this.svgAsset, {
+      this.pngAsset, {
         Key key,
         @required this.size,
         @required this.borderColor,
@@ -22,12 +22,6 @@ class Badge extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: ExactAssetImage(
-            svgAsset ,
-          ),
-          fit: BoxFit.cover,
-        ) ,
         color: Colors.white,
         shape: BoxShape.circle,
         border: Border.all(
@@ -41,6 +35,13 @@ class Badge extends StatelessWidget {
             blurRadius: 3,
           ),
         ],
+      ),
+      padding: EdgeInsets.all(size * .15),
+      child: Center(
+        child: Image.asset(
+          pngAsset,
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }
