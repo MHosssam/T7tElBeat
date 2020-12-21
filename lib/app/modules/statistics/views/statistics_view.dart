@@ -6,7 +6,6 @@ import 'package:ta7t_elbeet/app/modules/home_screen/views/home_screen_view.dart'
 import 'package:ta7t_elbeet/app/modules/home_screen/views/widget/drawer_data.dart';
 import 'package:ta7t_elbeet/app/modules/statistics/controllers/statistics_controller.dart';
 import 'package:ta7t_elbeet/app/modules/statistics/views/widget/stat_body.dart';
-import 'package:ta7t_elbeet/app/routes/app_pages.dart';
 
 class StatisticsView extends GetView<StatisticsController> {
 
@@ -20,7 +19,7 @@ class StatisticsView extends GetView<StatisticsController> {
         body: StatBody(),
       ),
       onWillPop: () {
-        return Get.offAllNamed(Routes.STATISTICS);
+        return Get.offAll(HomeScreenView());
       },
     );
   }

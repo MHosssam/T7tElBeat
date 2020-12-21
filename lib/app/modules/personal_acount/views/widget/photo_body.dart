@@ -19,16 +19,17 @@ class PhotoBody extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .40,
             child: Stack(
               children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * .9,
-                  height: MediaQuery.of(context).size.height * .30,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8.0),
+                Obx(()=> Container(
+                    width: MediaQuery.of(context).size.width * .9,
+                    height: MediaQuery.of(context).size.height * .30,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: controller.CoverImageUrl.value == null
+                        ? Image.asset('assets/images/cover.jpeg')
+                        : Image.file(File(controller.CoverImageUrl.value)),
                   ),
-                  child: controller.CoverImageUrl.value == null
-                      ? Image.asset('assets/images/cover.jpeg')
-                      : Image.file(File(controller.CoverImageUrl.value)),
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.red,
@@ -49,11 +50,12 @@ class PhotoBody extends StatelessWidget {
           Stack(
             alignment: AlignmentDirectional.bottomCenter,
             children: [
-              CircleAvatar(
-                radius: 70.0,
-                backgroundImage: controller.profileImageUrl.value == null
-                    ? AssetImage('assets/images/cover.jpeg' ,)
-                    : FileImage(File(controller.profileImageUrl.value)),
+              Obx(()=> CircleAvatar(
+                  radius: 70.0,
+                  backgroundImage: controller.profileImageUrl.value == null
+                      ? AssetImage('assets/images/cover.jpeg' ,)
+                      : FileImage(File(controller.profileImageUrl.value)),
+                ),
               ),
               CircleAvatar(
                 backgroundColor: Colors.red,

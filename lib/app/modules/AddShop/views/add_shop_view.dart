@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,18 +23,16 @@ class AddShopView extends GetView<AddShopController> {
             children: [
               Stack(
                 children: [
-                  Container(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height * .30,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      image: DecorationImage(
-                        image: ExactAssetImage(
-                          'assets/images/cover.jpeg',
-                        ),
-                        fit: BoxFit.fill,
+                  Obx(()=> Container(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height * .30,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                      borderRadius: BorderRadius.circular(8.0),
+                      child: controller.profileImageUrl.value == null
+                          ? Image.asset('assets/images/cover.jpeg')
+                          : Image.file(File(controller.profileImageUrl.value)),
                     ),
                   ),
                   Container(
