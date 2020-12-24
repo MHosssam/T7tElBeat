@@ -29,8 +29,3 @@ class EshtrakBody extends GetView<SettingService> {
     );
   }
 }
-
-/*
-*
-*
-*  */
